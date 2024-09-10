@@ -5,7 +5,7 @@
 #define MAX_ETUDIANTS 1000
 #define MAX_LENGTH 50
 
-
+// LES DONNES DE PROGRAMES
 typedef struct{
     int id;
     char nom[MAX_LENGTH];
@@ -14,6 +14,9 @@ typedef struct{
     char departement[MAX_LENGTH];
     float note_generale;
 }Etudiant;
+
+// LES PROTOTYPES
+void menu_principale();
 
 int main(){
     menu_principale();
@@ -24,7 +27,7 @@ int main(){
 void menu_principale(){
     int reponse;
     do{
-    printf("\nApplication de Gestion des étudiants dans une université\n");
+    printf("\nApplication de Gestion des etudiants dans une universite\n");
     printf("1.Ajouter un etudiant\n");
     printf("2.Modifier un etudiant\n");
     printf("3.Supprimer un etudiant\n");
@@ -37,37 +40,37 @@ void menu_principale(){
     printf("Votre Choix: ");
     scanf("%d", &reponse);
 
-      switch(reponse){
-        case 1:
-            ajouter_un_etudiant();
-            break;
-        case 2:
-            modifier_les_informations();
-            break;
-        case 3:
-            supprimer_un_etudiant();
-            break;
-        case 4:
-            afficher_les_details();
-            break;
-        case 5:
-            calculer_le_moyenne();
-            break;
-        case 6:
-            statistique();
-            break;
-        case 7:
-            chercher_un_etudiant();
-            break;
-        case 8:
-            trier_les_etudiants();
-            break;
-        case 9:
-            printf("Au revoir!\n");
-            break;
-        default:
-            printf("Choix invalid saisez une autre reponse existe dans le menu\n");
-            break;
-      }
+    //   switch(reponse){
+    //     case 1:
+    //         ajouter_un_etudiant();
+    //         break;
+    //     case 2:
+    //         modifier_les_informations();
+    //         break;
+    //     case 3:
+    //         supprimer_un_etudiant();
+    //         break;
+    //     case 4:
+    //         afficher_les_details();
+    //         break;
+    //     case 5:
+    //         calculer_le_moyenne();
+    //         break;
+    //     case 6:
+    //         statistique();
+    //         break;
+    //     case 7:
+    //         chercher_un_etudiant();
+    //         break;
+    //     case 8:
+    //         trier_les_etudiants();
+    //         break;
+    //     case 9:
+    //         printf("Au revoir!\n");
+    //         break;
+    //     default:
+    //         printf("Choix invalid saisez une autre reponse existe dans le menu\n");
+    //         break;
+    //   }
     }while(reponse != 9);
 }
