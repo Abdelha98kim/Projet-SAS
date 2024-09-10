@@ -18,6 +18,7 @@ typedef struct{
 Etudiant etudiants[MAX_ETUDIANTS];
 int nombre_etudiants = 0;
 void menu_principale();
+void ajouter_un_etudiant();
 
 int main(){
     menu_principale();
@@ -77,5 +78,5 @@ void menu_principale(){
 }
 
 void ajouter_un_etudiant(){
-
+    
 }
