@@ -15,7 +15,8 @@ typedef struct{
     float note_generale;
 }Etudiant;
 
-// LES PROTOTYPES
+Etudiant etudiants[MAX_ETUDIANTS];
+int nombre_etudiants = 0;
 void menu_principale();
 
 int main(){
@@ -73,4 +74,8 @@ void menu_principale(){
     //         break;
     //   }
     }while(reponse != 9);
+}
+
+void ajouter_un_etudiant(){
+
 }
