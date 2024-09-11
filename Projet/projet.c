@@ -266,12 +266,18 @@ void moyenne_generale(){
 void statistiques(){
   printf("\n");
   printf("Les Statistiques: \n");
+  printf("-----------------------\n");
   afficher_totale_etudiant();
   printf("\n");
+  printf("-----------------------\n");
   nombre_etudiant_dans_departement();
+  printf("-----------------------\n");
   les_trois_meilleures_notes();
-  etudiants_superieur_a_certain_seuil();
+  printf("-----------------------\n");
   nombre_etudiants_reussi_departement();
+  printf("-----------------------\n");
+  printf("\n");
+  etudiants_superieur_a_certain_seuil();
 }
 
 void afficher_totale_etudiant(){
@@ -381,6 +387,35 @@ void les_trois_meilleures_notes(){
 
 }
 
-// void nombre_etudiants_reussi_departement(){
+void nombre_etudiants_reussi_departement(){
+    int nombre_math = 0;
+    int nombre_physique = 0;
+    int nombre_chimie = 0;
+    int nombre_info = 0;
+    int nombre_biologie = 0;
+    for (int i = 0; i < nombre_etudiants; i++){
+        if(strcmp(etudiants[i].departement, "math") == 0 && etudiants[i].note_generale >= 10){
+            nombre_math++;
+        }
+        if(strcmp(etudiants[i].departement, "physique")  == 0 && etudiants[i].note_generale >= 10){
+            nombre_physique++;
+        }
+        if(strcmp(etudiants[i].departement, "chimie")  == 0 && etudiants[i].note_generale >= 10){
+            nombre_chimie++;
+        }
+        if(strcmp(etudiants[i].departement, "informatique")  == 0 && etudiants[i].note_generale >= 10){
+            nombre_info++;
+        }
+        if(strcmp(etudiants[i].departement, "biologie")  == 0 && etudiants[i].note_generale >= 10){
+            nombre_biologie++;
+        }
+    }
 
-// }
+    printf("\n");
+    printf("Le nombre des etudiants qui ont reussi dans le departement Math: %d\n", nombre_math);
+    printf("Le nombre des etudiants qui ont reussi dans le departement physique: %d\n", nombre_physique);
+    printf("Le nombre des etudiants qui ont reussi dans le departement Chimie: %d\n", nombre_chimie);
+    printf("Le nombre des etudiants qui ont reussi dans le departement Informatique: %d\n", nombre_info);
+    printf("Le nombre des etudiants qui ont reussi dans le departement biologie: %d\n", nombre_biologie);
+    printf("\n");
+}
