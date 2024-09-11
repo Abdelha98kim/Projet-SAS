@@ -10,10 +10,12 @@ void ajouter_un_etudiant();
 void modifier_ou_supprimer();
 void afficher_details();
 void moyenne_generale();
+void statistiques();
 void afficher_totale_etudiant();
 void nombre_etudiant_dans_departement();
 void etudiants_superieur_a_certain_seuil();
 void les_trois_meilleures_notes();
+void nombre_etudiants_reussi_departement();
 
 
 typedef struct{
@@ -56,10 +58,7 @@ int main(){
           moyenne_generale();
           break;
         case 5:
-          afficher_totale_etudiant();
-          nombre_etudiant_dans_departement();
-          les_trois_meilleures_notes();
-          etudiants_superieur_a_certain_seuil();
+          statistiques();
           break;
     }
    }while (reponse != 8);
@@ -262,6 +261,17 @@ void moyenne_generale(){
     printf("Le moyenne generale de l'universite: %.2f\n", moyenne / nombre_etudiants);
 
     
+}
+
+void statistiques(){
+  printf("\n");
+  printf("Les Statistiques: \n");
+  afficher_totale_etudiant();
+  printf("\n");
+  nombre_etudiant_dans_departement();
+  les_trois_meilleures_notes();
+  etudiants_superieur_a_certain_seuil();
+  nombre_etudiants_reussi_departement();
 }
 
 void afficher_totale_etudiant(){
