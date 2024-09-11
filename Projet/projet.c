@@ -16,6 +16,7 @@ void nombre_etudiant_dans_departement();
 void etudiants_superieur_a_certain_seuil();
 void les_trois_meilleures_notes();
 void nombre_etudiants_reussi_departement();
+void rechercher_un_etudiant();
 
 
 typedef struct{
@@ -59,6 +60,9 @@ int main(){
           break;
         case 5:
           statistiques();
+          break;
+        case 6:
+          rechercher_un_etudiant();
           break;
     }
    }while (reponse != 8);
@@ -419,3 +423,12 @@ void nombre_etudiants_reussi_departement(){
     printf("Le nombre des etudiants qui ont reussi dans le departement biologie: %d\n", nombre_biologie);
     printf("\n");
 }
+
+// void rechercher_un_etudiant(){
+//     int choix;
+//     printf("Tu veux rechercher par le 1-Nom ou par le 2-departement: ");
+//     scanf("%d", &choix);
+//     if(choix == 1){
+
+//     }
+// }
