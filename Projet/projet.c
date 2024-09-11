@@ -340,9 +340,37 @@ void les_trois_meilleures_notes(){
         
     }
 
-    
+    for (int i = 0; i < nombre_etudiants; i++){
+        if (max1 == etudiants[i].note_generale){
+            printf("\nPremier note: \n");
+            printf("ID: %d\n", etudiants[i].id);
+            printf("Nom: %s\n", etudiants[i].nom);
+            printf("Prenom: %s\n", etudiants[i].prenom);
+            printf("Departement: %s\n", etudiants[i].departement);
+            printf("Note Glbale: %.2f\n", etudiants[i].note_generale);
+            printf("\n");
 
-    printf("Premier note: %.2f\n", max1);
-    printf("deuxieme note: %.2f\n", max2);
-    printf("troisieme note: %.2f\n", max3);
+        }else if (max2 == etudiants[i].note_generale){
+            printf("\nDeuxieme note:\n");
+            printf("ID: %d\n", etudiants[i].id);
+            printf("Nom: %s\n", etudiants[i].nom);
+            printf("Prenom: %s\n", etudiants[i].prenom);
+            printf("Departement: %s\n", etudiants[i].departement);
+            printf("Note Glbale: %.2f\n", etudiants[i].note_generale);
+            printf("\n");
+        }else if (max3 == etudiants[i].note_generale){
+            printf("\nTroisieme note: \n");
+            printf("ID: %d\n", etudiants[i].id);
+            printf("Nom: %s\n", etudiants[i].nom);
+            printf("Prenom: %s\n", etudiants[i].prenom);
+            printf("Departement: %s\n", etudiants[i].departement);
+            printf("Note Glbale: %.2f\n", etudiants[i].note_generale);
+            printf("\n");
+        }
+    }
+
 }
+
+// void nombre_etudiants_reussi_departement(){
+
+// }
