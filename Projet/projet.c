@@ -8,7 +8,7 @@ int nombre_etudiants = 0;
 
 void menu_principale();
 void ajouter_un_etudiant();
-void modifier_ou_ajouter();
+void modifier_ou_supprimer();
 void afficher_details();
 
 
@@ -89,8 +89,8 @@ void ajouter_un_etudiant(){
     
 }
 
-void modifier_ou_ajouter(){
-    int choix, id, verifier;
+void modifier_ou_supprimer(){
+    int choix, id, verifier, question;
     printf("\nTu veux: \n1.Modifier les details d'un etudiant\n2.Supprimer les details d'un etudiant\n");
     printf("Votre choix: ");
     scanf("%d", &choix);
@@ -100,26 +100,46 @@ void modifier_ou_ajouter(){
 
         for (int i = 0; i < nombre_etudiants; i++){
          if(etudiants[i].id == id){
-          verifier = 1;
-         }else{
-            verifier = 0;
-         }
-        }
-
-        if(verifier == 1){
+           verifier = 1;
            printf("Nom: ");
            scanf("%s", &etudiants[id - 1].nom);
-           print("Prenom: ");
+           printf("Prenom: ");
            scanf("%s", &etudiants[id -1].prenom);
            printf("Date de naissance: \n");
            printf("Jour: ");
-           scanf("%d", &etudiants[nombre_etudiants].date_de_naissances.jour);
+           scanf("%d", &etudiants[id - 1].date_de_naissances.jour);
            printf("Mois: ");
-           scanf("%d", &etudiants[nombre_etudiants].date_de_naissances.mois);
+           scanf("%d", &etudiants[id - 1].date_de_naissances.mois);
            printf("Annee: ");
-           scanf("%d", &etudiants[nombre_etudiants].date_de_naissances.annee);
+           scanf("%d", &etudiants[id - 1].date_de_naissances.annee);
+           printf("Selectionner Votre departement (math - physique - chimie - informatique - biologie - geologie): ");
+           scanf("%s", &etudiants[id - 1].departement);
+           printf("Note Generale: ");
+           scanf("%f", &etudiants[id - 1].note_generale);
+           printf("\nEtudiant ajouter avec success\n");
+         }
+        }
+
+        if (verifier != 1){
+            printf("Invalid ID\n");
         }
     }
+    else if (choix == 2){
+        printf("Saisez ID de l'etudiant: ");
+        scanf("%d", &id);
+        printf("Voulez vous vraiment supprimer (1-Y/2-N): ", etudiants[id].nom, etudiants[id].prenom);
+        scanf("%d", &question);
+        if (question == 1){
+            for (int i = id - 1; i < nombre_etudiants; i++){
+                etudiants[i] = etudiants[i+1];
+            }
+            nombre_etudiants -= 1;
+            printf("\netudiant supprimer avec success\n");
+        }else{
+            printf("\nOperation annule\n");
+        }
+    }
+    
 
 
 }
