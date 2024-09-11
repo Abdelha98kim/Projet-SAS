@@ -58,8 +58,8 @@ int main(){
         case 5:
           afficher_totale_etudiant();
           nombre_etudiant_dans_departement();
-          etudiants_superieur_a_certain_seuil();
           les_trois_meilleures_notes();
+          etudiants_superieur_a_certain_seuil();
           break;
     }
    }while (reponse != 8);
@@ -340,21 +340,9 @@ void les_trois_meilleures_notes(){
         
     }
 
-    // max2 = etudiants[0].note_generale;
-    // for (int i = 0; i < nombre_etudiants; i++){
-    //     if(max2 < etudiants[i+1].note_generale){
-    //         max2 = etudiants[i+1].note_generale;
-    //     }
-    // }
-
-    // max3 = etudiants[0].note_generale;
-    // for (int i = 0; i < nombre_etudiants; i++){
-    //     if(max3 < etudiants[i+1].note_generale){
-    //         max3 = etudiants[i+1].note_generale;
-    //     }
-    // }
+    
 
     printf("Premier note: %.2f\n", max1);
-    printf("deuxieme note: %.2f\n", max1);
-    printf("troisieme note: %.2f\n", max1);
+    printf("deuxieme note: %.2f\n", max2);
+    printf("troisieme note: %.2f\n", max3);
 }
