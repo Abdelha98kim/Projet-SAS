@@ -304,7 +304,7 @@ void statistiques(){
   printf("3-Afficher les etudiants ayant une moyenne generale superieur a un cretaine seuil\n");
   printf("4-Afficher les 3 etudiants ayant les meilleures notes\n");
   printf("5-Afficher le nombre d'etudiants ayant reussi dans chaque departement\n");
-  printf("Annuler");
+  printf("6-Annuler\n");
   printf("Votre Choix:");
   scanf("%d", &choix);
   switch(choix){
