@@ -66,7 +66,9 @@ int main(){
           break;
     }
    }while (reponse != 8);
-   
+
+   getchar();
+   return 0;
 }
 
 
@@ -421,9 +423,55 @@ void nombre_etudiants_reussi_departement(){
 
 void rechercher_un_etudiant(){
     int choix;
-    printf("Tu veux rechercher par le 1-Nom ou par le 2-departement: ");
+    printf("Tu veux rechercher par\n1-Nom\n2-departement\n");
+    printf("Votre choix: ");
     scanf("%d", &choix);
-    // if(choix == 1){
+    if(choix == 1){
+        char nom_saisez[50];
+        char nom_saisez_converter[50];
+        printf("Sasiez Le Nom: ");
+        scanf("%s", &nom_saisez);
+        strcpy(nom_saisez_converter, strlwr(nom_saisez));
+        for (int i = 0; i < nombre_etudiants; i++){
+            strcpy(etudiants[i].nom, strlwr(etudiants[i].nom));
+            if(strcmp(etudiants[i].nom, nom_saisez_converter)!= 0){
+                printf("Cette Etudiant n'exist pas");
+                printf("\n");
+                continue;
+            }
+            if(strcmp(etudiants[i].nom, nom_saisez_converter)== 0){
+                printf("\n");
+                printf("ID: %d\n", etudiants[i].id);
+                printf("Nom: %s\n", etudiants[i].nom);
+                printf("Prenom: %s\n", etudiants[i].prenom);
+                printf("Date de naissance: %d-%d-%d\n", etudiants[i].date_de_naissances.jour, etudiants[i].date_de_naissances.mois, etudiants[i].date_de_naissances.annee);
+                printf("Departement: %s\n", etudiants[i].departement);
+                printf("Note generale: %.2f\n", etudiants[i].note_generale);
+            }
+        }
+    }else if(choix == 2){
+        char choix_departement[50];
+        printf("Saisez Le departement: ");
+        scanf("%s", &choix_departement);
+        strcpy(choix_departement, strlwr(choix_departement));
+        
 
-    // }
+        for(int i = 0; i < nombre_etudiants; i++){
+            strcpy(etudiants[i].departement, strlwr(etudiants[i].departement));
+            if( strcmp(choix_departement, etudiants[i].departement) == 0){
+                printf("\n");
+                printf("ID: %d\n", etudiants[i].id);
+                printf("Nom: %s\n", etudiants[i].nom);
+                printf("Prenom: %s\n", etudiants[i].prenom);
+                printf("Date de naissance: %d-%d-%d\n", etudiants[i].date_de_naissances.jour, etudiants[i].date_de_naissances.mois, etudiants[i].date_de_naissances.annee);
+                printf("Departement: %s\n", etudiants[i].departement);
+                printf("Note generale: %.2f\n", etudiants[i].note_generale);
+            }
+        }
+    }
+    
+}
+
+void trier_etudtiant_fct_nom(){
+    
 }
