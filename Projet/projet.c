@@ -201,63 +201,57 @@ void moyenne_generale(){
     float moyenne_chimie = 0;
     float moyenne_info = 0;
     float moyenne_biologie = 0;
-    int finale = 0;
+    float finale = 0;
     float moyenne = 0;
     for (int i = 0; i < nombre_etudiants; i++){
         strcpy(etudiants[i].departement, strlwr(etudiants[i].departement));
     }
-    // for (int i = 0; i < nombre_etudiants; i++){
-    //       if(strcmp(etudiants[i].departement, "math") == 0){
-    //         somme_math = somme_math + (i + 1);
-    //       }
-    //       if(strcmp(etudiants[i].departement, "physique")  == 0){
-    //         somme_physique = somme_physique +1;
-    //       }
-    //       if(strcmp(etudiants[i].departement, "chimie")  == 0){
-    //         somme_chimie = somme_chimie + 1;
-    //       }
-    //       if(strcmp(etudiants[i].departement, "informatique")  == 0){
-    //         somme_info = somme_info + 1;
-    //       }
-    //       if(strcmp(etudiants[i].departement, "biologie")  == 0){
-    //         somme_biologie = somme_biologie + 1;
-    //       }
-    // }
+   
+    float finale1 = 0;
+    float finale2 = 0;
+    float finale3 = 0;
+    float finale4 = 0;
+    float finale5 = 0;
 
-    // int finale1 = 0;
-    // int finale2 = 0;
-    // int finale3 = 0;
-    // int finale4 = 0;
-    // int finale5 = 0;
-
-    // for (int i = 0; i < nombre_etudiants; i++){
-    //     if(strcmp(etudiants[i].departement, "math") == 0){
-    //         finale1 = finale1 + etudiants[i].note_generale;
-    //         moyenne_math = finale1 / somme_math;
-    //       }
-    //     if(strcmp(etudiants[i].departement, "physique")  == 0){
-    //         finale2 = finale2 + etudiants[i].note_generale;
-    //         moyenne_physique = finale2 / somme_physique;
-    //       }
-    //     if(strcmp(etudiants[i].departement, "chimie")  == 0){
-    //         finale3 = finale3 + etudiants[i].note_generale;
-    //         moyenne_chimie = finale3 / somme_chimie;
-    //       }
-    //     if(strcmp(etudiants[i].departement, "informatique")  == 0){
-    //         finale4 = finale4 + etudiants[i].note_generale;
-    //         moyenne_info = finale4 / somme_info;
-    //       }
-    //     if(strcmp(etudiants[i].departement, "biologie")  == 0){
-    //         finale5 = finale5 + etudiants[i].note_generale;
-    //         moyenne_biologie = finale5 / somme_biologie;
-    //       }
-    // }
+    for (int i = 0; i < nombre_etudiants; i++){
+        if(strcmp(etudiants[i].departement, "math") == 0){
+               somme_math++;
+            finale1 = finale1 + etudiants[i].note_generale;
+            
+          }
+        else if(strcmp(etudiants[i].departement, "physique")  == 0){
+                somme_physique++;
+            finale2 = finale2 + etudiants[i].note_generale;
+            
+          }
+        else if(strcmp(etudiants[i].departement, "chimie")  == 0){
+               somme_chimie++;
+            finale3 = finale3 + etudiants[i].note_generale;
+            
+          }
+        else if(strcmp(etudiants[i].departement, "informatique")  == 0){
+               somme_info++;
+            finale4 = finale4 + etudiants[i].note_generale;
+            
+          }
+        else if(strcmp(etudiants[i].departement, "biologie")  == 0){
+               somme_biologie++;
+            finale5 = finale5 + etudiants[i].note_generale;
+            
+          }
+    }
+       
+       moyenne_math = finale1 / somme_math;
+       moyenne_physique = finale2 / somme_physique;
+       moyenne_chimie = finale3 / somme_chimie;
+       moyenne_info = finale4 / somme_info;
+       moyenne_biologie = finale5 / somme_biologie;
     
-    // printf("le moyenne generale de departement Math: %.2f\n", moyenne_math);
-    // printf("le moyenne generale de departement Physique: %.2f\n", moyenne_physique);
-    // printf("le moyenne generale de departement Chimie: %.2f\n", moyenne_chimie);
-    // printf("le moyenne generale de departement Informatique: %.2f\n", moyenne_info);
-    // printf("le moyenne generale de departement Biologie: %.2f\n", moyenne_biologie);
+    printf("le moyenne generale de departement Math: %.2f\n", moyenne_math);
+    printf("le moyenne generale de departement Physique: %.2f\n", moyenne_physique);
+    printf("le moyenne generale de departement Chimie: %.2f\n", moyenne_chimie);
+    printf("le moyenne generale de departement Informatique: %.2f\n", moyenne_info);
+    printf("le moyenne generale de departement Biologie: %.2f\n", moyenne_biologie);
 
     for (int i = 0; i < nombre_etudiants; i++){
         moyenne = moyenne + etudiants[i].note_generale;
@@ -271,6 +265,7 @@ void statistiques(){
   printf("\n");
   printf("Les Statistiques: \n");
   printf("-----------------------\n");
+  printf("\n");
   afficher_totale_etudiant();
   printf("\n");
   printf("-----------------------\n");
@@ -424,11 +419,11 @@ void nombre_etudiants_reussi_departement(){
     printf("\n");
 }
 
-// void rechercher_un_etudiant(){
-//     int choix;
-//     printf("Tu veux rechercher par le 1-Nom ou par le 2-departement: ");
-//     scanf("%d", &choix);
-//     if(choix == 1){
+void rechercher_un_etudiant(){
+    int choix;
+    printf("Tu veux rechercher par le 1-Nom ou par le 2-departement: ");
+    scanf("%d", &choix);
+    // if(choix == 1){
 
-//     }
-// }
+    // }
+}
