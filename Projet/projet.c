@@ -18,7 +18,8 @@ void les_trois_meilleures_notes();
 void nombre_etudiants_reussi_departement();
 void rechercher_un_etudiant();
 void triage();
-void trier_etudtiant_fct_nom();
+void trier_etudtiant_fct_nom1();
+void trier_etudiant_fct_nom2();
 
 
 typedef struct{
@@ -228,6 +229,7 @@ void moyenne_generale(){
     int somme_chimie = 0;
     int somme_info = 0;
     int somme_biologie = 0;
+    int choix;
     float moyenne_math = 0;
     float moyenne_physique = 0;
     float moyenne_chimie = 0;
@@ -278,20 +280,43 @@ void moyenne_generale(){
        moyenne_chimie = finale3 / somme_chimie;
        moyenne_info = finale4 / somme_info;
        moyenne_biologie = finale5 / somme_biologie;
-    
-    printf("le moyenne generale de departement Math: %.2f\n", moyenne_math);
-    printf("le moyenne generale de departement Physique: %.2f\n", moyenne_physique);
-    printf("le moyenne generale de departement Chimie: %.2f\n", moyenne_chimie);
-    printf("le moyenne generale de departement Informatique: %.2f\n", moyenne_info);
-    printf("le moyenne generale de departement Biologie: %.2f\n", moyenne_biologie);
-    printf("\n");
 
-    for (int i = 0; i < nombre_etudiants; i++){
+        for (int i = 0; i < nombre_etudiants; i++){
         moyenne = moyenne + etudiants[i].note_generale;
-    }
-    printf("Le moyenne generale de l'universite: %.2f\n", moyenne / nombre_etudiants);
+        }
+     printf("Le moyenne generale de l'universite: %.2f\n", moyenne / nombre_etudiants);
+     printf("\n");
+       printf("Tu Veux:\n");
+       printf("1-Le moyenne generale de departement Math\n");
+       printf("2-Le moyenne generale de departement Physique\n");
+       printf("3-Le moyenne generale de departement Chimie\n");
+       printf("4-Le moyenne generale de departement Informatique\n");
+       printf("5-Le moyenne generale de departement Biologie\n");
+       printf("6-Annuler\n");
+       do{
+        
+       printf("Votre Choix: ");
+       scanf("%d", &choix);
+       switch(choix){
+          case 1:
+            printf("le moyenne generale de departement Math: %.2f\n", moyenne_math);
+            break;
+         case 2:
+            printf("le moyenne generale de departement Physique: %.2f\n", moyenne_physique);
+            break;
+        case 3:
+             printf("le moyenne generale de departement Chimie: %.2f\n", moyenne_chimie);
+             break;
+        case 4:
+             printf("le moyenne generale de departement Informatique: %.2f\n", moyenne_info);
+             break;
+        case 5:
+             printf("le moyenne generale de departement Biologie: %.2f\n", moyenne_biologie);
+             break;
+       }
+       }while(choix != 6);
+       printf("\n");
 
-    
 }
 
 void statistiques(){
@@ -565,17 +590,20 @@ void rechercher_un_etudiant(){
 
 void triage(){
     int choix;
-    printf("Trier par:\n1. Nom (A-Z)\n2. Nom (Z-A)\n3. Note generale (croissant)\n4. Note generale (décroissant)\n5. Statut de reussite\n");
+    printf("Trier par:\n1. Nom (A-Z)\n2. Nom (Z-A)\n3. Note generale (croissant)\n4. Note generale (decroissant)\n5. Statut de reussite\n");
     printf("Votre Choix: ");
     scanf("%d", &choix);
     switch(choix){
         case 1:
-           trier_etudtiant_fct_nom();
+           trier_etudtiant_fct_nom1();
+           break;
+        case 2:
+           trier_etudiant_fct_nom2();
            break;
     }
 }
 
-void trier_etudtiant_fct_nom(){
+void trier_etudtiant_fct_nom1(){
     for (int i = 0; i < nombre_etudiants; i++){
         strcpy(etudiants[i].nom, strlwr(etudiants[i].nom));
     }
@@ -588,4 +616,39 @@ void trier_etudtiant_fct_nom(){
                     }
                 }
             }
+            printf("\nListe des etudiants tries par nom (A-Z):\n");
+            for (int i = 0; i < nombre_etudiants; i++) {
+                printf("ID: %d\n", etudiants[i].id);
+                printf("Nom: %s\n", etudiants[i].nom);
+                printf("Prenom: %s\n", etudiants[i].prenom);
+                printf("Date de naissance: %d-%d-%d\n", etudiants[i].date_de_naissances.jour, etudiants[i].date_de_naissances.mois, etudiants[i].date_de_naissances.annee);
+                printf("Departement: %s\n", etudiants[i].departement);
+                printf("Note generale: %.2f\n", etudiants[i].note_generale);
+                printf("\n");
+            }
 }
+
+// void trier_etudiant_fct_nom2(){
+//     for (int i = 0; i < nombre_etudiants; i++){
+//         strcpy(etudiants[i].nom, strlwr(etudiants[i].nom));
+//     }
+//    for (int i = 0; i < nombre_etudiants; i++) {
+//                 for (int j = i + 1; j < nombre_etudiants; j++) {
+//                     if (strcmp(etudiants[i].nom, etudiants[j].nom) > 0) {
+//                         Etudiant change = etudiants[j];
+//                         etudiants[j] = etudiants[i];
+//                         etudiants[i] = change;
+//                     }
+//                 }
+//             }
+//             printf("\nListe des etudiants tries par nom (A-Z):\n");
+//             for (int i = 0; i < nombre_etudiants; i++) {
+//                 printf("ID: %d\n", etudiants[i].id);
+//                 printf("Nom: %s\n", etudiants[i].nom);
+//                 printf("Prenom: %s\n", etudiants[i].prenom);
+//                 printf("Date de naissance: %d-%d-%d\n", etudiants[i].date_de_naissances.jour, etudiants[i].date_de_naissances.mois, etudiants[i].date_de_naissances.annee);
+//                 printf("Departement: %s\n", etudiants[i].departement);
+//                 printf("Note generale: %.2f\n", etudiants[i].note_generale);
+//                 printf("\n");
+//             }
+// }
